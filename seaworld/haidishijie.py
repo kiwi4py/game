@@ -90,16 +90,12 @@ def main():
 
     L_DIAMOND_IMG = pygame.image.load('diamond.png')
 
-
-
-
     GRASSIMAGES = []
     for i in range(1, 5):
         GRASSIMAGES.append(pygame.image.load('grass%s.png' % i))
 
     while True:
         runGame()
-
 
 def runGame():
     # set up variables for the start of a new game
@@ -121,8 +117,6 @@ def runGame():
     winSurf2 = BASICFONT.render('(Press "r" to restart.)', True, WHITE)
     winRect2 = winSurf2.get_rect()
     winRect2.center = (HALF_WINWIDTH, HALF_WINHEIGHT + 30)
-
-
 
     # camerax and cameray are the top left of where the camera view is
     camerax = 0
@@ -375,14 +369,11 @@ def runGame():
         FPSCLOCK.tick(FPS)
 
 
-
-
 def drawHealthMeter(currentHealth):
     for i in range(currentHealth): # draw red health bars
         pygame.draw.rect(DISPLAYSURF, RED,   (15, 5 + (10 * MAXHEALTH) - i * 10, 20, 10))
     for i in range(MAXHEALTH): # draw the white outlines
         pygame.draw.rect(DISPLAYSURF, WHITE, (15, 5 + (10 * MAXHEALTH) - i * 10, 20, 10), 1)
-
 
 def terminate():
     pygame.quit()
@@ -407,7 +398,6 @@ def getRandomVelocity():
     else:
         return -speed
 
-
 def getRandomOffCameraPos(camerax, cameray, objWidth, objHeight):
     # create a Rect of the camera view
     cameraRect = pygame.Rect(camerax, cameray, WINWIDTH, WINHEIGHT)
@@ -419,7 +409,6 @@ def getRandomOffCameraPos(camerax, cameray, objWidth, objHeight):
         objRect = pygame.Rect(x, y, objWidth, objHeight)
         if not objRect.colliderect(cameraRect):
             return x, y
-
 
 def makeNewSquirrel(camerax, cameray):
     sq = {}
@@ -459,7 +448,6 @@ def makeNewGrass(camerax, cameray):
     gr['x'], gr['y'] = getRandomOffCameraPos(camerax, cameray, gr['width'], gr['height'])
     gr['rect'] = pygame.Rect( (gr['x'], gr['y'], gr['width'], gr['height']) )
     return gr
-
 
 def isOutsideActiveArea(camerax, cameray, obj):
     # Return False if camerax and cameray are more than
