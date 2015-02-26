@@ -1,7 +1,9 @@
-# Squirrel Eat Squirrel (a 2D Katamari Damacy clone)
+# The origin version is Squirrel Eat Squirrel (a 2D Katamari Damacy clone)
 # By Al Sweigart al@inventwithpython.com
 # http://inventwithpython.com/pygame
 # Released under a "Simplified BSD" license
+# More creatures and sound effect are added. Besides, health number can increase if shark eats 
+# diamonds.
 #-*-coding: utf-8 -*-
 import random, sys, time, math, pygame
 from pygame.locals import *
@@ -457,7 +459,6 @@ def isOutsideActiveArea(camerax, cameray, obj):
     boundsRect = pygame.Rect(boundsLeftEdge, boundsTopEdge, WINWIDTH * 3, WINHEIGHT * 3)
     objRect = pygame.Rect(obj['x'], obj['y'], obj['width'], obj['height'])
     return not boundsRect.colliderect(objRect)
-
 
 if __name__ == '__main__':
     main()
